@@ -5,7 +5,6 @@ import { getPopularMovies } from 'service/api';
 
 const Home = () => {
   const [movie, setMovie] = useState([]);
-  const [error, setError] = useState('');
   const location = useLocation();
 
   useEffect(() => {
@@ -14,7 +13,7 @@ const Home = () => {
       try {
         setMovie(response);
       } catch (error) {
-        setError(error.message);
+        alert(error.message);
       }
     };
     getMovieReques();

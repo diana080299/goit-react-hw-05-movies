@@ -6,7 +6,6 @@ import { Ul } from './Cast.styled';
 const Cast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
-  const [error, setError] = useState(null);
   const defaultImg =
     'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
@@ -16,7 +15,7 @@ const Cast = () => {
         const resultMovie = await getCast(movieId);
         setCast(resultMovie.cast);
       } catch (error) {
-        setError(error.message);
+        alert(error.message);
       }
     };
 

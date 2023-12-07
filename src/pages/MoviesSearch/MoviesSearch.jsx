@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { getMovieById } from 'service/api';
 import { MovieInfo } from 'components/MovieInfo/MovieInfo';
-import { Btn, Div, Title } from './MoviesSearch.styled';
+import { Btn, Title } from './MoviesSearch.styled';
 
 const MovieSearch = () => {
   const { movieId } = useParams();
