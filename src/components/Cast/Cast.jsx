@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getCast } from 'service/api';
 import { Ul } from './Cast.styled';
 
-export const Cast = () => {
+const Cast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
   const [error, setError] = useState(null);
@@ -34,7 +34,7 @@ export const Cast = () => {
 
   return (
     <>
-      {cast.length > 0 ? (
+      {cast.length >= 0 ? (
         <Ul>
           {cast.map(({ original_name, character, profile_path, id }) => (
             <li key={id}>
@@ -50,3 +50,5 @@ export const Cast = () => {
     </>
   );
 };
+
+export default Cast;

@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { fetchReviews } from 'service/api';
 import { Title } from './Reviews.styled';
 
-export const Reviews = () => {
+const Reviews = () => {
   const [reviewsData, setReviewsData] = useState(null);
   const { movieId } = useParams();
 
@@ -32,8 +32,9 @@ export const Reviews = () => {
           ))}
         </ul>
       ) : (
-        <p style={{ color: 'red' }}>We don't have any reviews for this movie</p>
+        <p style={{ color: 'red' }}>Rewiews is undefined</p>
       )}
     </div>
   );
 };
+export default Reviews;

@@ -4,7 +4,7 @@ import { getMovieById } from 'service/api';
 import { MovieInfo } from 'components/MovieInfo/MovieInfo';
 import { Btn, Div, Title } from './MoviesSearch.styled';
 
-export const MovieSearch = () => {
+const MovieSearch = () => {
   const { movieId } = useParams();
   const [movieInfo, setMovieInfo] = useState(null);
   const location = useLocation();
@@ -13,8 +13,8 @@ export const MovieSearch = () => {
 
   useEffect(() => {
     const fetchMovie = async () => {
+      const resultMovie = await getMovieById(movieId);
       try {
-        const resultMovie = await getMovieById(movieId);
         setMovieInfo(resultMovie);
       } catch (error) {
         alert('Error fetching movie details');
@@ -50,3 +50,5 @@ export const MovieSearch = () => {
     </>
   );
 };
+
+export default MovieSearch;

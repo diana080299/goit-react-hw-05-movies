@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { getSearchMovie } from 'service/api';
 
-export const Movie = () => {
+const Movie = () => {
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState('');
   const [params, setParams] = useSearchParams();
@@ -42,3 +42,5 @@ export const Movie = () => {
     </section>
   );
 };
+
+export default Movie;

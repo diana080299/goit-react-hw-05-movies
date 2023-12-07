@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 
-export const Header = () => {
+const Header = () => {
   return (
     <>
       <header className=" w-25 p-3" style={{ marginLeft: ' 10px' }}>
@@ -23,11 +23,11 @@ export const Header = () => {
           </ul>
         </div>
       </header>
-      <main>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Outlet />
-        </Suspense>
-      </main>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };
+
+export default Header;

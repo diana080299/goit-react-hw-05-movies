@@ -27,7 +27,6 @@ export const MovieInfo = ({ movieInfo }) => {
           User Score: {percentCount(vote_average)}%
         </span>
         <Title>
-          {' '}
           Overview: <Span>{overview}</Span>{' '}
         </Title>
         <Title>Genres:</Title>
