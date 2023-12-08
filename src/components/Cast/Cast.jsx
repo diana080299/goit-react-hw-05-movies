@@ -10,9 +10,14 @@ const Cast = () => {
     'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
   useEffect(() => {
+    if (!movieId) return;
     const getCastMovie = async () => {
       try {
         const resultMovie = await getCast(movieId);
+        if (resultMovie.cast === 0) {
+          alert('No cast information available');
+          return;
+        }
         setCast(resultMovie.cast);
       } catch (error) {
         alert(error.message);

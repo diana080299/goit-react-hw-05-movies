@@ -12,6 +12,10 @@ const Reviews = () => {
     const fetchReviewsData = async () => {
       try {
         const reviewsInfo = await fetchReviews(movieId);
+        if (reviewsInfo.results.length === 0) {
+          alert('Review for this movie undefined');
+          return;
+        }
         setReviewsData(reviewsInfo.results);
       } catch (error) {
         console.error('Error fetching reviews:', error);
@@ -22,7 +26,7 @@ const Reviews = () => {
 
   return (
     <div>
-      {reviewsData ? (
+      {reviewsData && reviewsData.length > 0 ? (
         <ul>
           {reviewsData.map(({ id, author, content }) => (
             <li key={id}>
@@ -32,9 +36,10 @@ const Reviews = () => {
           ))}
         </ul>
       ) : (
-        <p style={{ color: 'red' }}>Rewiews is undefined</p>
+        <p style={{ color: 'red' }}>Reviews are undefined</p>
       )}
     </div>
   );
 };
+
 export default Reviews;
