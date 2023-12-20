@@ -9,8 +9,8 @@ const Home = () => {
 
   useEffect(() => {
     const getMovieReques = async () => {
-      const response = await getPopularMovies();
       try {
+        const response = await getPopularMovies();
         setMovie(response);
       } catch (error) {
         alert(error.message);
@@ -19,7 +19,11 @@ const Home = () => {
     getMovieReques();
   }, []);
 
-  return <div>{movie && <MovieList movies={movie} location={location} />}</div>;
+  return (
+    <div>
+      {movie.length > 0 && <MovieList movies={movie} location={location} />}
+    </div>
+  );
 };
 
 export default Home;
